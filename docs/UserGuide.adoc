@@ -128,32 +128,32 @@ You can also write preparation steps for your recipes.
 ==== Add an ingredient to a recipe
 This command allows you to add ingredients to a recipe.
 
-- Format: `recipe INDEX add i/INGREDIENT q/QUANTITY`
+- Format: `recipe INDEX add ingredient i/INGREDIENT q/QUANTITY`
 - Examples:
-* `recipe 1 add i/Egg q/2` +
+* `recipe 1 add ingredient i/Egg q/2` +
 Adds 2 eggs to the 1st recipe's list of ingredients.
-* `recipe 2 add i/Milk q/200 ml` +
+* `recipe 2 add ingredient i/Milk q/200 ml` +
 Adds 200 ml of milk to the 2nd recipe's list of ingredients.
 
 ==== Edit an ingredient in a recipe
 If you want to change the quantity of an ingredient after some experimentation, this command will help you achieve that.
 
-- Format: `recipe INDEX edit i/INGREDIENT q/QUANTITY`
+- Format: `recipe INDEX edit ingredient i/INGREDIENT q/QUANTITY`
 - Examples:
-* `recipe 1 edit i/Egg q/2` +
+* `recipe 1 edit ingredient i/Egg q/2` +
 Changes the quantity of eggs to 3 in the 1st recipe's list of ingredients.
-* `recipe 2 edit i/Milk q/100 ml` +
+* `recipe 2 edit ingredient i/Milk q/100 ml` +
 Changes the quantity of milk to 100 ml in the 2nd recipe's list of ingredients.
 
 ==== Remove an ingredient from a recipe
 You can remove ingredients that spoil the taste of the dish using this command.
 If the quantity to be removed is not specified, all of the ingredient will be removed.
 
-- Format: `recipe INDEX remove i/INGREDIENT [q/QUANTITY]`
+- Format: `recipe INDEX remove ingredient i/INGREDIENT [q/QUANTITY]`
 - Examples:
-* `recipe 1 remove i/Egg q/1` +
+* `recipe 1 remove ingredient i/Egg q/1` +
 Removes 1 egg from the list of ingredients in recipe 1.
-* `recipe 2 remove i/Milk` +
+* `recipe 2 remove ingredient i/Milk` +
 Removes milk from the list of ingredients in recipe 2.
 
 ==== Add a preparation step to a recipe
@@ -161,11 +161,11 @@ Removes milk from the list of ingredients in recipe 2.
 This command allows you to add a preparation step to the selected recipe.
 Requires a valid index in the list of recipes and the cooking step.
 
-- Format: `recipe INDEX add x/STEP_INDEX s/STEP_DESCRIPTION`
+- Format: `recipe INDEX add step x/STEP_INDEX s/STEP_DESCRIPTION`
 - Examples:
-* `recipe 1 add x/2 s/Bring the water to boil` +
+* `recipe 1 add step x/2 s/Bring the water to boil` +
 Adds a preparation step 2 (Bring water to boil) to recipe 1.
-* `recipe 2 add x/next s/Add a teaspoon of salt in the soup` +
+* `recipe 2 add step x/next s/Add a teaspoon of salt in the soup` +
 Adds the next preparation step (Add a teaspoon of salt in the soup) to recipe 2.
 
 ==== Remove a preparation step from a recipe
@@ -173,18 +173,18 @@ Adds the next preparation step (Add a teaspoon of salt in the soup) to recipe 2.
 This command allows you to remove a preparation step from the selected recipe.
 Requires a valid index in the list of recipes and the cooking step.
 
-- Format: `recipe INDEX remove x/STEP_INDEX`
+- Format: `recipe INDEX remove step x/STEP_INDEX`
 - Example:
-* `recipe 1 remove x/2` +
+* `recipe 1 remove step x/2` +
 Removes preparation step 2 in recipe 1.
 
 ==== Edit a preparation step in a recipe
 This command allows you to edit a preparation step from the selected recipe.
 Requires a valid index in the list of recipes and the cooking step
 
-- Format: `recipe INDEX edit x/STEP_INDEX s/STEP_DESCRIPTION`
+- Format: `recipe INDEX edit step x/STEP_INDEX s/STEP_DESCRIPTION`
 - Example:
-* `recipe 1 edit x/2 s/Fry the eggs` +
+* `recipe 1 edit step x/2 s/Fry the eggs` +
 Changes preparation step 2 to 'Fry the eggs' in recipe 1
 
 ==== Add a tag to a recipe
@@ -192,9 +192,9 @@ Changes preparation step 2 to 'Fry the eggs' in recipe 1
 This command allows you to add a tag to the selected recipe.
 Requires a valid index in the list of recipes.
 
-- Format: `recipe INDEX add t/TAG`
+- Format: `recipe INDEX add tag t/TAG`
 - Example:
-* `recipe 1 add t/Pasta` +
+* `recipe 1 add tag t/Pasta` +
 Adds a tag (Pasta) to the recipe 1.
 
 ==== Remove a tag from a recipe
@@ -202,9 +202,9 @@ Adds a tag (Pasta) to the recipe 1.
 This command allows you to remove a tag from the selected recipe.
 Requires a valid index in the list of recipes.
 
-- Format: `recipe INDEX remove t/TAG`
+- Format: `recipe INDEX remove tag t/TAG`
 - Example:
-* `recipe 1 remove t/Beef` +
+* `recipe 1 remove tag t/Beef` +
 Removes a tag (Beef) from the recipe 1.
 
 
