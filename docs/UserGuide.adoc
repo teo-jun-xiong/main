@@ -272,9 +272,7 @@ You can increase the quantity of an ingredient that is already in the recipe, as
 the same unit. Otherwise, Cooking Papa will not add the ingredient.
 
 Ingredient quantities are case-sensitive, but ingredient names are not, when you adding to an existing ingredient in a
-recipe.
-
-Note: If you indicate multiple ingredient names or quantities, Cooking Papa will only add an ingredient with the last
+recipe. If you indicate multiple ingredient names or quantities, Cooking Papa will only add an ingredient with the last
 name and quantity indicated in your command.
 
 - Format: `recipe INDEX add ingredient i/INGREDIENT q/QUANTITY`
@@ -296,10 +294,12 @@ Sample command feedback: +
 ==== Remove an ingredient from a recipe
 This command allows you to remove ingredients from an existing recipe in the cookbook.
 
-You can reduce the quantity of an ingredient that is already in the recipe, as long as you provide a quantity with
-the same unit, and a value not greater than that in the recipe.  Otherwise, Cooking Papa will not remove the ingredient.
+If you wish to remove an ingredient from the recipe entirely, do not indicate any quantity.
+Cooking Papa will then remove all of the specified ingredient from the recipe.
 
-If you do not indicate any quantity, all of the specified ingredient will be removed from the recipe.
+If you want to reduce the quantity of an ingredient that is already in the recipe, provide a quantity with the same unit
+as in the recipe. The value must be less than that of the corresponding ingredient in the recipe. Otherwise, Cooking Papa
+will not remove the ingredient.
 
 - Format: `recipe INDEX remove ingredient i/INGREDIENT [q/QUANTITY]`
 - Examples:
@@ -386,8 +386,6 @@ This command allows you to remove a tag from an existing recipe in the cookbook.
 Only one tag is accepted at a time. If you provide multiple steps, Cooking Papa
 will only remove the last tag in your command.
 
-Note: you must have the tag you wish to remove in the selected recipe, otherwise Cooking Papa will not be able to remove the tag from the recipe.
-
 - Format: `recipe INDEX remove tag t/TAG`
 - Example:
 |===
@@ -415,18 +413,18 @@ Here are the steps you can follow to modify the recipe:
 Step 1: To add an ingredient to the instant ramen recipe, type `recipe 3 add ingredient i/Instant ramen q/1 packet` into the command box and press kbd:[Enter] on the keyboard.
 Cooking Papa indicates that cucumber has been added to the recipe.
 
-image::RecipeCommand1.png[width=400]
+image::RecipeCommand1.png[width=350]
 
-image::RecipeCommand2.png[width=400]
+image::RecipeCommand2.png[width=350]
 
 Step 2: Repeat step 1 for all the ingredients you need for the instant ramen.
 
 Step 3: To add the first step the instant ramen recipe, type `recipe 3 add step x/next s/Add the oil, garlic, and ginger to a small sauce pot and saute over medium for about one minute.` into the command box and press kbd:[Enter] on the keyboard.
 Cooking Papa indicates that the new step has been added to the recipe.
 
-image::RecipeCommand3.png[width=400]
+image::RecipeCommand3.png[width=350]
 
-image::RecipeCommand4.png[width=400]
+image::RecipeCommand4.png[width=350]
 
 Step 4: Repeat step 3 for all the steps, following chronological order.
 
@@ -434,22 +432,22 @@ Step 5: After adding the ingredients and steps, you can also add tags to the rec
 Type `recipe 3 add tag t/Easy t/Healthy` to add the tags "Easy" and "Healthy" to the recipe. Upon pressing kbd:[Enter],
 Cooking Papa indicates that the tags have been added.
 
-image::RecipeCommand5.png[width=400]
+image::RecipeCommand5.png[width=350]
 
-image::RecipeCommand6.png[width=400]
+image::RecipeCommand6.png[width=350]
 
 Step 6: The recipe is finally ready for use. Type `cookbook view recipe 3` into the command box to view the recipe and and press kbd:[Enter].
 Cooking Papa shows the full recipe for instant ramen, and you can now use it to prepare your meal.
 
-image::RecipeCommand7.png[width=400]
+image::RecipeCommand7.png[width=350]
 
 Step 7: After trying the recipe, if you find that there was too much of ginger for your liking,
 type `recipe 3 remove ingredient i/Grated ginger q/1/2 tsp` into the command box and press kbd:[Enter] to remove half a teaspoon of grated ginger from the recipe.
 Cooking Papa indicates that half a teaspoon of grated ginger has been removed from the recipe.
 
-image::RecipeCommand8.png[width=400]
+image::RecipeCommand8.png[width=350]
 
-image::RecipeCommand9.png[width=400]
+image::RecipeCommand9.png[width=350]
 //end::gohkh[]
 
 [[Inventory]]
@@ -605,7 +603,7 @@ _An example of the PDF file exported from the sample cart in Cooking Papa._
 |===
 
 //tag::help[]
-=== Help command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
+=== Help Command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 This command shows a popup window with a URL to Cooking Papa's user guide (what you are reading now). This is for access
 should you need some help executing a certain action in Cooking Papa.
 
@@ -624,7 +622,7 @@ image::CookbookHelpExample2.png[width="700"]
 //end::help[]
 
 //tag::exit[]
-=== Exit command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
+=== Exit Command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 There are 3 ways a user can exit Cooking Papa:
 
 - Type `exit`.
@@ -639,7 +637,7 @@ image::ExitExample.png[width="790"]
 These features are not implemented yet, but we plan to do so moving forward with the application.
 
 // tag::gohkh[]
-=== Edit recipe details [v2.0] https://github.com/gohkh?tab=repositories[(by Goh Ka Hui)]
+=== Edit Recipe Commands [v2.0] https://github.com/gohkh?tab=repositories[(by Goh Ka Hui)]
 The following commands allow you to edit the details of the recipes that are currently in the cookbook.
 
 ==== Edit an ingredient in a recipe
