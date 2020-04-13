@@ -1145,7 +1145,7 @@ tagged with "Simple" or "Celebrity".
 
 === Adding an ingredient to a recipe
 
-Please note that the results of these test cases are based on the sample cookbook.
+Please note that the results of these test cases are based on the sample cookbook. The tests can be performed in any order.
 
 .. Prerequisites: List all recipes in the cookbook with the `cookbook list` command, and view all the ingredients in recipe 1 with the `cookbook view recipe INDEX` command, *using the sample cookbook*.
 .. Test case: `recipe 1 add ingredient i/Olive Oil q/1 tbsp` +
@@ -1154,6 +1154,22 @@ Please note that the results of these test cases are based on the sample cookboo
    Expected: the specified ingredient will not be added, and an error message indicating that the existing ingredient in the recipe has a different unit will be displayed.
 .. Test case: `recipe 1 add ingredient i/Ingredient q/1` (a new ingredient) +
    Expected: the specified ingredient is added to the recipe.
+
+=== Removing an ingredient from a recipe
+
+Please note that the results of these test cases are based on the sample cookbook. The tests can be performed in any order.
+
+.. Prerequisites: List all recipes in the cookbook with the `cookbook list` command, and view all the ingredients in recipe 1 with the `cookbook view recipe INDEX` command, *using the sample cookbook*.
+.. Test case: `recipe 1 remove ingredient i/Olive Oil q/1/2 tbsp` +
+   Expected: 1/2 tbsp of olive oil is removed from the recipe, and the ingredient quantity of olive oil is changed from 1 to 1/2 tbsp.
+.. Test case: `recipe 1 remove ingredient i/Olive Oil q/1 tsp` (an ingredient with incompatible units) +
+   Expected: the specified ingredient will not be removed, and an error message is shown indicating that the existing ingredient in the recipe has a different unit will be displayed.
+.. Test case: `recipe 1 remove ingredient i/Ingredient q/1` (an ingredient that is not in the recipe) +
+   Expected: the ingredient is not removed, and an error message is shown indicating that the ingredient is not in the recipe
+.. Test case: `recipe 1 remove ingredient i/Olive Oil q/10 tbsp` (ingredient quantity too high) +
+   Expected: the ingredient is not removed, and an error message is shown indicating that the specified quantity is greater than that in the recipe
+.. Test case: `recipe 1 remove ingredient i/Cheese` (no quantity specified) +
+   Expected: cheese is removed from the recipe entirely, and the recipe no longer contains any cheese
 
 === Exporting the cart to a PDF file
 Please note that for the export command, the result is based on the sample cart.
