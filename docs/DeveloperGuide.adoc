@@ -71,6 +71,7 @@ The sections below give more details of each component.
 [[Design-Ui]]
 === UI component https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 
+//tag::ui[]
 .Structure of the UI Component
 image::UiClassDiagram.png[]
 
@@ -87,6 +88,7 @@ The `UI` component,
 
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
+//end::ui[]
 
 [[Design-Logic]]
 === Logic component https://github.com/gohkh[(by Goh Ka Hui)]
@@ -153,7 +155,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-=== Add Recipe to the Cookbook https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
+=== Add recipe to the cookbook https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 ==== Implementation
 
 The recipe addition mechanism is facilitated by `CookbookAddCommand`, which extends the `Command` abstract class. The
@@ -226,6 +228,8 @@ The following `Recipe` object diagram is an overview of the attributes of a `Rec
 .UML object diagram of Recipe providing an overview on how the various objects interact
 image::RecipeObjectDiagram.png[]
 
+// tag::addrecipesequence[]
+
 The following sequence diagram shows how the recipe adding function works (full command [`cookbook add recipe
                                                                                           n/Recipe name d/Recipe
                                                                                           description i/Ingredient 1
@@ -234,7 +238,6 @@ The following sequence diagram shows how the recipe adding function works (full 
                                                                                           step 2 t/This t/Is t/A
                                                                                           t/Tag`]  omitted from diagram
 for brevity):
-// tag::addrecipesequence[]
 
 .Sequence diagram for CookbookAddCommand
 image::CookbookAddRecipeSequenceDiagram.png[]
@@ -860,11 +863,16 @@ limit is hit. This repeats until all the lines are added to the PDF.
 their addition was successful.
 //end::cartexport[]
 
+// tag::cartexportsequence[]
 The following sequence diagram shows how the function of exporting ingredients in the cart to a PDF file works:
 
-// tag::cartexportsequence[]
 .Sequence diagram for CartExportCommand
 image::CartExportCommandSequenceDiagram.png[]
+
+The following activity diagram shows a possible flow of events for a user using this command:
+.Activity diagram for CartExportCommand
+image::CartExportActivityDiagram.png[]
+
 // end::cartexportsequence[]
 
 ==== Design considerations
