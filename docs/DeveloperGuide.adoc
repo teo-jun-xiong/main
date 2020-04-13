@@ -26,7 +26,7 @@ Refer to the guide <<SettingUp#, here>>.
 [[Design-Architecture]]
 === Architecture
 
-.Architecture Diagram
+.Architecture diagram
 image::ArchitectureDiagram.png[]
 
 The *_Architecture Diagram_* given above explains the high-level design of the App. Given below is a quick overview of each component.
@@ -55,7 +55,7 @@ Each of the four components
 
 For example, the `Logic` component (see the class diagram given below) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
 
-.Class Diagram of the Logic Component
+.Class diagram of the Logic component
 image::LogicClassDiagram.png[]
 
 [discrete]
@@ -88,11 +88,12 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
+// tag::gohkh[]
 [[Design-Logic]]
 === Logic component https://github.com/gohkh[(by Goh Ka Hui)]
 
 [[fig-LogicClassDiagram]]
-.Structure of the Logic Component
+.Structure of the Logic component
 image::LogicClassDiagram.png[]
 
 *API* :
@@ -106,13 +107,13 @@ link:{repoURL}/src/main/java/seedu/address/logic/Logic.java[`Logic.java`]
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("cookbook remove recipe 2")` API call.
 
-.Interactions Inside the Logic Component for the `cookbook remove recipe 2` Command
+.Interactions inside the Logic component for the `cookbook remove recipe 2` command
 image::CookbookRemoveRecipeSequenceDiagram.png[]
 
 [[Design-Model]]
 === Model component https://github.com/gohkh[(by Goh Ka Hui)]
 
-.Structure of the Model Component
+.Structure of the Model component
 image::ModelClassDiagram.png[]
 
 *API* : link:{repoURL}/src/main/java/seedu/address/model/Model.java[`Model.java`]
@@ -122,6 +123,8 @@ The `Model`,
 * stores a `UserPref` object that represents the user's preferences.
 * stores the Cookbook data.
 * exposes an unmodifiable `ObservableList<Recipe>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the Inventory and Cart data.
+* exposes an unmodifiable `ObservableList<Recipe>` each for both Inventory and Cart, that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
 [NOTE]
@@ -132,7 +135,7 @@ image:BetterModelClassDiagram.png[]
 [[Design-Storage]]
 === Storage component https://github.com/gohkh[(by Goh Ka Hui)]
 
-.Structure of the Storage Component
+.Structure of the Storage component
 image::StorageClassDiagram.png[]
 
 *API* : link:{repoURL}/src/main/java/seedu/address/storage/Storage.java[`Storage.java`]
@@ -143,6 +146,7 @@ The `Storage` component,
 * can save `Cookbook` data in json format and read it back.
 * can save `Inventory` data in json format and read it back.
 * can save `Cart` data in json format and read it back.
+// end::gohkh[]
 
 [[Design-Commons]]
 === Common classes
@@ -474,13 +478,13 @@ if (recipe.getIngredients().size() == NO_INGREDIENTS) {
 
 The following activity diagram shows a possible flow of events for a user using this feature:
 
-.Acitivty diagram for CookbookSearchByInventory
+.Activity diagram for the `cookbook search inventory` command
 image::CookbookSearchByInventoryActivityDiagram.png[]
 
 The following sequence diagram summarizes how objects interact when a user executes the command,
 with more focus on how the command is parsed in the `Logic`component:
 
-.Sequence diagram for CookbokoSearchByInventory
+.Sequence diagram for CookbookSearchByInventoryCommand
 
 image::CookbookSearchByInventorySequenceDiagram.png[]
 
