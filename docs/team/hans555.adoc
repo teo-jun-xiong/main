@@ -13,8 +13,8 @@ Cooking Papa is a desktop cookbook application used to manage recipes and ingred
 
 == Summary of contributions
 
-* *Major enhancement*: added the ability to cook a recipe using inventory ingredients
-** What it does: allows the user to remove the ingredients in the inventory after cooking a specific recipe inside CookingPapa.
+* *Major enhancement*: Added the ability to cook a recipe using inventory ingredients
+** What it does: Allows the user to remove the ingredients in the inventory after cooking a specific recipe inside CookingPapa.
 ** Justification: This feature improves the product significantly because it allows the user to remove recipe's ingredients effectively without
 having the user to remove the each ingredient separately.
 ** Highlights: This enhancement will be one of the most used feature as this application is mainly to aid cooking experience.
