@@ -481,7 +481,7 @@ if (recipe.getIngredients().size() == NO_INGREDIENTS) {
 
 The following activity diagram shows a possible flow of events for a user using this feature:
 
-.Acitivty diagram for CookbookSearchByInventory
+.Activity diagram for the `cookbook search inventory` command
 image::CookbookSearchByInventoryActivityDiagram.png[]
 
 The following sequence diagram summarizes how objects interact when a user executes the command,
